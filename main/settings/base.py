@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # myapps
-
+    'users',
     # third paryapps
     'rest_framework',
     'drf_yasg',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
     # "debug_toolbar",
 
 ]
@@ -173,10 +175,16 @@ LOGGING = {
         "django": {
             "handlers": ["console", 'file'],
             # log level describes the severity of the messages that the logger will handle.
-            "level": config("DJANGO_LOG_LEVEL"),
+            "level": config("DJANGO_LOG_LEVEL", 'INFO'),
             'propagate': True,
             # If False, this means that log messages written to django.request
             # will not be handled by the django logger.
         },
     },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
