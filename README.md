@@ -1,14 +1,13 @@
+## PROJECT_PLAN (Django project -backend)
 
-## PROJECT_PLAN
-
-- Flight
-- Reservation
-- Passenger
+- Flight table
+- Reservation table
+- Passenger table
 
 # FLIGHT
 
     - Client_users
-        - views upcoming flisgts
+        - views upcoming flisgts(o anki ve daha sonraki uçuşları görebilisin)
 
     - Staff members
         - views all flight with reservations

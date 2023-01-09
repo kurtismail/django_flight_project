@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # myapps
     'users',
+    'flight',
     # third paryapps
     'rest_framework',
     'drf_yasg',
