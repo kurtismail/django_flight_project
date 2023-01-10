@@ -37,3 +37,18 @@ class ReservationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reservation
         fields = ("id", "flight", "flight_id", "user", "passenger")
+
+    def create(self, validated_data):
+        passenger_data = validated_data.pop("passenger")
+        validated_data["user_id"] = self.context["request"].user.id
+        reservation = Reservation.objects.create(**validated_data)
+        # ** gelen data ile tüm fieldleri  otomatik olarak eşleştriyor(map'liyor)
+
+        for passenger in passenger_data:
+            # reservation obj oluşturduk
+            pas = Passenger.objects.create(**passenger)
+            # manytomany fielde özel old için ekledik
+            reservation.passenger.add(pas)
+
+        reservation.save()
+        return reservation
