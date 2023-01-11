@@ -23,7 +23,7 @@ class FlightView(viewsets.ModelViewSet):
             return StaffFlightSerializer
         return serializer
 
-    def get_queryset(self):
+    def get_queryset(self):  # user için tarih için uçuşları listeledik
         now = datetime.now()
         current_time = now.strftime('%H:%M:%S')
         today = date.today()

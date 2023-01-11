@@ -15,7 +15,7 @@ class Flight(models.Model):
 
 
 class Passenger(models.Model):           # cooper - jason - murat ...
-    first_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     email = models.EmailField()
     phone_number = models.IntegerField()
